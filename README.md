@@ -35,5 +35,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Admin Dashboard with Server Actions.
+## Admin Dashboard with Server Actions:
+    This project only contains vanilla CSS.
 
+## Packages:
+react icons,
