@@ -39,4 +39,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     This project only contains vanilla CSS.
 
 ## Packages:
-react icons,
+react icons, recharts(chart diagram),
