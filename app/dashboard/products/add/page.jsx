@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/app/ui/dashboard/products/addProduct/addProduct.module.css";
 
-const Add = () => {
+const AddProduct = () => {
   return (
     <div className={styles.container}>
       <form action="" className={styles.form}>
@@ -18,7 +18,7 @@ const Add = () => {
         <input type="text" placeholder="size" name="size" />
         <textarea
           name="desc"
-          id=""
+          id="desc"
           rows="16"
           placeholder="Description"
         ></textarea>
@@ -28,4 +28,4 @@ const Add = () => {
   );
 };
 
-export default Add;
+export default AddProduct;
