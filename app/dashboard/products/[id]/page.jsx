@@ -36,7 +36,7 @@ const SingleProductPage = () => {
           id="desc"
           rows="16"
           placeholder="Description"
-        ></textarea>
+        ></textarea>  
           <button>Update</button>
         </form>
       </div>

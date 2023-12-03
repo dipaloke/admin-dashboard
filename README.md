@@ -36,7 +36,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ## Admin Dashboard with Server Actions:
-    This project only contains vanilla CSS.
+    This Next.js project only contains vanilla CSS, Mongo DB, No typeScript,
 
 ## Packages:
-react icons, recharts(chart diagram),
+react icons, recharts(chart diagram), mongoose(schema),
