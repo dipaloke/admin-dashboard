@@ -39,4 +39,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     This Next.js project only contains vanilla CSS, Mongo DB, No typeScript,
 
 ## Packages:
-react icons, recharts(chart diagram), mongoose(schema),
+react icons, recharts(chart diagram), mongoose(schema), use-debounce(wait users to finish typing),
