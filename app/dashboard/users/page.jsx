@@ -43,13 +43,13 @@ const UsersPage = async () => {
                   {user.username}
                 </div>
               </td>
-              <td>john@gmail.com</td>
-              <td>13.05.2024</td>
-              <td>Admin</td>
-              <td>active</td>
+              <td>{user.email}</td>
+              <td>{user.createdAt?.toString().slice(4,16)}</td>
+              <td>{user.isAdmin ? "Admin" : "Client"}</td>
+              <td>{user.isActive ? "Active" : "NonActive"}</td>
               <td>
                 <div className={styles.buttons}>
-                  <Link href="/dashboard/users/test">
+                  <Link href={`/dashboard/users/${user.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
                       View
                     </button>
