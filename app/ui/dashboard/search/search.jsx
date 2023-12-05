@@ -17,6 +17,9 @@ const Search = ({ placeholder }) => {
     // creating new url inside the query will run. using the replace method to change the url
 
     const params = new URLSearchParams(searchParams);
+
+    params.set("page", 1);
+
     // if search field contains nothing the url will not show q. search field needs to contain at least 3 char
     if (e.target.value) {
       e.target.value.length > 2 && params.set("q", e.target.value);
@@ -24,7 +27,7 @@ const Search = ({ placeholder }) => {
       params.delete("q");
     }
     replace(`${pathName}?${params}`);
-  },300);
+  }, 300);
 
   return (
     <div className={styles.container}>

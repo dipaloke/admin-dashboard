@@ -9,8 +9,11 @@ import { fetchUsers } from "@/app/lib/data";
 const UsersPage = async ({ searchParams }) => {
   //if query doesn't exists its going to be an empty string
   const q = searchParams?.q || "";
-  // passing the query to fetch user function
-  const users = await fetchUsers(q);
+  const page = searchParams?.page || 1; // default page 1
+
+  // passing the query and page to fetchUsers function
+  const {count, users} = await fetchUsers(q, page);
+
 
   return (
     <div className={styles.container}>
@@ -66,7 +69,7 @@ const UsersPage = async ({ searchParams }) => {
           ))}
         </tbody>
       </table>
-      <Pagination />
+      <Pagination count={count} />
     </div>
   );
 };
