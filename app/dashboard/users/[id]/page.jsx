@@ -1,15 +1,18 @@
 import React from "react";
 import styles from "@/app/ui/dashboard/users/singleUser/singleUser.module.css";
 import Image from "next/image";
+import { fetchUser } from "@/app/lib/data";
 
-const SingleUserPage = () => {
+const SingleUserPage = async ({ params }) => {
+  const { id } = params;
+  const user = fetchUser(id);
   return (
     <div className={styles.container}>
       <div className={styles.infoContainer}>
         <div className={styles.imgContainer}>
-          <Image src="/noavatar.png" alt="avatar" fill />
+          <Image src={user.img || "/noavatar.png"} alt="avatar" fill />
         </div>
-        John Doe
+        {user.username}
       </div>
       <div className={styles.formContainer}>
         <form action="" className={styles.form}>

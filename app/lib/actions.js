@@ -40,6 +40,27 @@ export const addUser = async (formData) => {
   redirect("/dashboard/users");
 };
 
+//UPDATE User
+
+
+export const updateUser = async (formData) => {
+    const { id, username, email, password, phone, address, isAdmin, isActive } =
+      Object.fromEntries(formData); // getting data from form body
+
+    try {
+      connectToDB();
+
+
+    } catch (err) {
+      console.log(err);
+      throw new Error("Failed to update user!");
+    }
+    //successful creation of new user will update userPage
+    revalidatePath("/dashboard/users");
+    // after user creation redirect to user Page from userAdd page
+    redirect("/dashboard/users");
+  };
+
 //ADD PRODUCT
 
 export const addProduct = async (FormData) => {
