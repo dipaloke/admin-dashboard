@@ -40,4 +40,24 @@ export const { signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
+  //including username & userpicture from user to inside JWT token user object
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.username = user.username;
+        token.img = user.img;
+      }
+      return token;
+    },
+
+    // to get access to this data we need to pass the data from token to inside session
+
+    async session({ session, token }) {
+      if (token) {
+        session.user.username = token.username;
+        session.user.img = token.img;
+      }
+      return session;
+    },
+  },
 });
