@@ -42,24 +42,54 @@ export const addUser = async (formData) => {
 
 //UPDATE User
 
-
 export const updateUser = async (formData) => {
-    const { id, username, email, password, phone, address, isAdmin, isActive } =
-      Object.fromEntries(formData); // getting data from form body
+  const { id, username, email, password, phone, address, isAdmin, isActive } =
+    Object.fromEntries(formData); // getting data from form body
 
-    try {
-      connectToDB();
+  try {
+    connectToDB();
+    const updateFields = {
+      username,
+      email,
+      password,
+      phone,
+      address,
+      isAdmin,
+      isActive,
+    };
+    // if formFields are empty or undefined then delete the fields from updateFields,
+    // otherwise we will be using the data from form fields and update our user.
 
+    Object.keys(updateFields).forEach(
+      (key) =>
+        (updateFields[key] === "" || undefined) && delete updateFields[key]
+    );
+    await User.findByIdAndUpdate(id, updateFields);
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to update user!");
+  }
+  //successful creation of new user will update userPage
+  revalidatePath("/dashboard/users");
+  // after user creation redirect to user Page from userAdd page
+  redirect("/dashboard/users");
+};
 
-    } catch (err) {
-      console.log(err);
-      throw new Error("Failed to update user!");
-    }
-    //successful creation of new user will update userPage
-    revalidatePath("/dashboard/users");
-    // after user creation redirect to user Page from userAdd page
-    redirect("/dashboard/users");
-  };
+//DELETE USER
+
+export const deleteUser = async (FormData) => {
+  const { id } = Object.fromEntries(FormData); // getting data from form body
+
+  try {
+    connectToDB();
+    await User.findByIdAndDelete(id);
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to delete user!");
+  }
+  //successful deletion of product will update productPage
+  revalidatePath("/dashboard/users");
+};
 
 //ADD PRODUCT
 
@@ -89,25 +119,39 @@ export const addProduct = async (FormData) => {
   redirect("/dashboard/products");
 };
 
+//UPDATE PRODUCT
 
-//DELETE USER
+export const updateProduct = async (formData) => {
+  const { id, title, desc, price, stock, color, size } =
+    Object.fromEntries(formData); // getting data from form body
 
+  try {
+    connectToDB();
+    const updateFields = {
+      title,
+      desc,
+      price,
+      stock,
+      color,
+      size,
+    };
+    // if formFields are empty or undefined then delete the fields from updateFields,
+    // otherwise we will be using the data from form fields and update our user.
 
-export const deleteUser = async (FormData) => {
-    const { id } = Object.fromEntries(FormData); // getting data from form body
-
-    try {
-      connectToDB();
-      await User.findByIdAndDelete(id);
-    } catch (err) {
-      console.log(err);
-      throw new Error("Failed to delete user!");
-    }
-    //successful deletion of product will update productPage
-    revalidatePath("/dashboard/users");
-  };
-
-
+    Object.keys(updateFields).forEach(
+      (key) =>
+        (updateFields[key] === "" || undefined) && delete updateFields[key]
+    );
+    await Product.findByIdAndUpdate(id, updateFields);
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to update product!");
+  }
+  //successful creation of new user will update userPage
+  revalidatePath("/dashboard/products");
+  // after user creation redirect to user Page from userAdd page
+  redirect("/dashboard/products");
+};
 
 //DELETE PRODUCT
 
