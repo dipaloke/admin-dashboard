@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import styles from "@/app/ui/dashboard/products/products.module.css";
 import { fetchProducts } from "@/app/lib/data";
+import { deleteProduct } from "@/app/lib/actions";
 
 const ProductsPage = async ({ searchParams }) => {
   //if query doesn't exists its going to be an empty string
@@ -59,9 +60,12 @@ const ProductsPage = async ({ searchParams }) => {
                       View
                     </button>
                   </Link>
-                  <button className={`${styles.button} ${styles.delete}`}>
-                    Delete
-                  </button>
+                  <form action={deleteProduct}>
+                    <input type="hidden" name="id" value={product.id} />
+                    <button className={`${styles.button} ${styles.delete}`}>
+                      Delete
+                    </button>
+                  </form>
                 </div>
               </td>
             </tr>
