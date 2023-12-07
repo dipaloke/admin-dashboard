@@ -38,6 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Admin Dashboard with Server Actions:
     1. This Next.js project only contains vanilla CSS, Mongo DB, No typeScript,
     2. Server actions are done using latest ** Next_14 ** "use server" features. (No API layer)
+    3. Next-Auth : (https://nextjs.org/learn/dashboard-app/adding-authentication)
 
 ## Packages:
-react icons, recharts(chart diagram), mongoose(schema), use-debounce(wait users to finish typing), bcrypt(pass hashing),
+react icons, recharts(chart diagram), mongoose(schema), use-debounce(wait users to finish typing), bcrypt(pass hashing), next-auth@beta (Authentication),
