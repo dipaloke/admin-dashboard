@@ -40,4 +40,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     2. Server actions are done using latest ** Next_14 ** "use server" features. (No API layer)
 
 ## Packages:
-react icons, recharts(chart diagram), mongoose(schema), use-debounce(wait users to finish typing),
+react icons, recharts(chart diagram), mongoose(schema), use-debounce(wait users to finish typing), bcrypt(pass hashing),
