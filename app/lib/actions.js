@@ -178,7 +178,6 @@ export const authenticate = async (formData) => {
   try {
     await signIn("credentials", { username, password });
   } catch (err) {
-    console.log(err);
-    throw err;
+    return { error: "Wrong Credentials!" };
   }
 };
